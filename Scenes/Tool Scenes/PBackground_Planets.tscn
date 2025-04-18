@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0p14c74a834c"]
+
+[ext_resource type="Texture2D" uid="uid://dkgl4yreucos6" path="res://Assets/Placeholder/Kenny Planets/noise22.png" id="1_yj3ib"]
+[ext_resource type="Texture2D" uid="uid://dslhwsy4cjlge" path="res://Assets/Placeholder/Kenny Planets/light6.png" id="2_fposd"]
+
+[node name="PBackground" type="ParallaxBackground"]
+
+[node name="SlowPlanet" type="ParallaxLayer" parent="."]
+texture_repeat = 2
+
+[node name="Planet" type="Sprite2D" parent="SlowPlanet"]
+texture = ExtResource("1_yj3ib")
+
+[node name="SlowMoon" type="ParallaxLayer" parent="."]
+
+[node name="Moon" type="Sprite2D" parent="SlowMoon"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_fposd")
