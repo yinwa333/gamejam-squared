@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dsv11pqxhbr6g"]
 
 [ext_resource type="Script" uid="uid://ew3ljj523pvv" path="res://Scripts/lv_1_node_pbg.gd" id="1_ebm5i"]
-[ext_resource type="Texture2D" uid="uid://bexspf4pnmsgq" path="res://Assets/Placeholder/Kenny Planets/planet04.png" id="3_ebm5i"]
-[ext_resource type="Texture2D" uid="uid://bbqgxngexamxc" path="res://Assets/Placeholder/Kenny Planets/planet08.png" id="3_inmap"]
+[ext_resource type="Texture2D" uid="uid://dqqio0l06p5nn" path="res://Assets/Placeholder/Kenny Planets/noise24.png" id="2_ukfv5"]
+[ext_resource type="Texture2D" uid="uid://cnmmmtmx3jbse" path="res://Assets/Placeholder/Kenny Planets/noise18.png" id="3_bt2dj"]
 [ext_resource type="Texture2D" uid="uid://dslhwsy4cjlge" path="res://Assets/Placeholder/Kenny Planets/light6.png" id="3_iva01"]
 [ext_resource type="Texture2D" uid="uid://lq07kebg0er7" path="res://Assets/Placeholder/Kenny Particles/star_07.png" id="7_xfdbo"]
 
@@ -11,32 +11,31 @@ script = ExtResource("1_ebm5i")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 repeat_size = Vector2(1920, 0)
-autoscroll = Vector2(-0.5, 0)
+autoscroll = Vector2(-1, 0)
 repeat_times = 2
 
 [node name="Planet BG" type="Sprite2D" parent="Parallax2D"]
 self_modulate = Color(0.4053, 0.49064, 0.54713, 1)
 position = Vector2(-302, 162)
 scale = Vector2(0.17035, 0.17035)
-texture = ExtResource("3_ebm5i")
+texture = ExtResource("2_ukfv5")
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
 repeat_size = Vector2(1920, 0)
-autoscroll = Vector2(-4, 0)
+autoscroll = Vector2(-3, 0)
 repeat_times = 2
 
 [node name="Planet" type="Sprite2D" parent="Parallax2D2"]
 position = Vector2(-1193, -248.8)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_inmap")
+texture = ExtResource("3_bt2dj")
 
 [node name="Parallax2D3" type="Parallax2D" parent="."]
 repeat_size = Vector2(1920, 0)
-autoscroll = Vector2(-3, 0)
+autoscroll = Vector2(-5, 0)
 repeat_times = 2
 
 [node name="Moon" type="Sprite2D" parent="Parallax2D3"]
-self_modulate = Color(0.706122, 0.553528, 0.265026, 1)
 position = Vector2(-1026, -153)
 scale = Vector2(0.108343, 0.108343)
 texture = ExtResource("3_iva01")

@@ -1,0 +1,133 @@
+[gd_scene load_steps=14 format=3 uid="uid://j71h34mxg8eq"]
+
+[ext_resource type="Script" uid="uid://cmj4doja027ir" path="res://Scripts/intro_3.gd" id="1_yryn7"]
+[ext_resource type="Texture2D" uid="uid://u0c3ukfgk5gw" path="res://Assets/Blackhole.jpg" id="2_r1l2s"]
+[ext_resource type="Shader" uid="uid://dv2giuhpvxg11" path="res://Scripts/speedlines.gdshader" id="3_hs36a"]
+[ext_resource type="FontFile" uid="uid://d0deqgwnd8hoe" path="res://Assets/Fonts/SpaceMono-Bold.ttf" id="4_ktx1n"]
+[ext_resource type="Shader" uid="uid://dq7h3vy1g12kw" path="res://Scripts/Blur.gdshader" id="5_ag6px"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ina6a"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5owgt"]
+noise = SubResource("FastNoiseLite_ina6a")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tay7t"]
+shader = ExtResource("3_hs36a")
+shader_parameter/noise = SubResource("NoiseTexture2D_5owgt")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_count = 2.0
+shader_parameter/line_density = 0.452
+shader_parameter/line_faloff = 0.352
+shader_parameter/mask_size = 0.0
+shader_parameter/mask_edge = 0.284
+shader_parameter/animation_speed = 7.0
+
+[sub_resource type="Animation" id="Animation_gnkci"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Prompt:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3yn62"]
+resource_name = "gameprompt"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Prompt:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_cknmu"]
+resource_name = "typing2"
+length = 4.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3yn62"]
+_data = {
+&"RESET": SubResource("Animation_gnkci"),
+&"gameprompt": SubResource("Animation_3yn62"),
+&"typing2": SubResource("Animation_cknmu")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jw2oo"]
+shader = ExtResource("5_ag6px")
+shader_parameter/screen_resolution = Vector2(480, 270)
+shader_parameter/scanline_intensity = 0.3
+shader_parameter/color_bleed_weight = 0.35
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_yryn7")
+
+[node name="Image" type="Sprite2D" parent="."]
+texture = ExtResource("2_r1l2s")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="Lines" type="ColorRect" parent="Camera2D/CanvasLayer"]
+material = SubResource("ShaderMaterial_tay7t")
+offset_left = -16.0
+offset_top = -14.0
+offset_right = 1173.0
+offset_bottom = 667.0
+
+[node name="Control" type="Control" parent="Camera2D/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/CanvasLayer/Control"]
+libraries = {
+&"": SubResource("AnimationLibrary_3yn62")
+}
+
+[node name="Prompt" type="RichTextLabel" parent="Camera2D/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 17.0
+offset_right = 574.0
+offset_bottom = 387.0
+theme_override_colors/default_color = Color(1, 0.1813, 0.190342, 1)
+theme_override_fonts/normal_font = ExtResource("4_ktx1n")
+theme_override_font_sizes/normal_font_size = 18
+text = "INITIATE IMMEDIATE SAMPLE EXTRACTION SYSTEMS...
+PREPARING VESSELS TO LAUNCH TO HQ...
+ANALYSIZING LOCAL CELESTIAL MATERIAL...
+REBOOTING INTERNAL DOCUMENTATION SYSTEMS...
+
+UPDATING DATE AND TIME...
+2009.03.18...... 2041.09.02...
+UPDATED...
+UPDATING STATUS...
+HIBERNATION...... ONLINE...
+INITIATING EMERGENCY EVACUATION...
+OVERRIDEN...
+BOOTING UP SAMPLE EXTRACTION SYSTEMS..."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="ScreenBlur Effect" type="ColorRect" parent="Camera2D/CanvasLayer"]
+material = SubResource("ShaderMaterial_jw2oo")
+offset_left = -28.0
+offset_top = -27.0
+offset_right = 1179.0
+offset_bottom = 688.0
+
+[connection signal="animation_finished" from="Camera2D/CanvasLayer/Control/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

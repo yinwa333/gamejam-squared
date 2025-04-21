@@ -1,0 +1,351 @@
+[gd_scene load_steps=28 format=3 uid="uid://cbm7of6leg2wu"]
+
+[ext_resource type="Texture2D" uid="uid://daiqh6xaqwf8c" path="res://Assets/Placeholder/rocket1.png" id="1_ehjmi"]
+[ext_resource type="Texture2D" uid="uid://ce6hoxjmve245" path="res://Assets/Placeholder/stars and symbols (1).png" id="1_llwst"]
+[ext_resource type="Script" uid="uid://ckc48h3tbi5do" path="res://Scripts/lv_2_object.gd" id="2_ms0wi"]
+[ext_resource type="Texture2D" uid="uid://cx56ghaqvhlss" path="res://Assets/Placeholder/Honeycomb_Blue.png" id="2_p4u3k"]
+[ext_resource type="Script" uid="uid://s1p3ugnmu8y6" path="res://Scripts/camera_2d.gd" id="3_5awjf"]
+[ext_resource type="Texture2D" uid="uid://dkpdphnm6rw6i" path="res://Assets/Placeholder/Honeycomb_Black.png" id="3_n3cqh"]
+[ext_resource type="Texture2D" uid="uid://dehqaa2l35e5w" path="res://Assets/Placeholder/Stars.png" id="4_jriq2"]
+[ext_resource type="Shader" uid="uid://dq7h3vy1g12kw" path="res://Scripts/Blur.gdshader" id="4_n3cqh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xx40l"]
+radius = 66.0303
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_utdxf"]
+radius = 68.0661
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8wk15"]
+radius = 69.0652
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0plju"]
+radius = 40.1123
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ms0wi"]
+radius = 27.074
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5awjf"]
+radius = 24.1868
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n3cqh"]
+radius = 41.4367
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jriq2"]
+radius = 30.0666
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ehjmi"]
+radius = 21.0238
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p4u3k"]
+radius = 26.5707
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_70df5"]
+radius = 28.2843
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ejprb"]
+radius = 26.5707
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_au75x"]
+radius = 29.1548
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_62f1r"]
+radius = 19.2354
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1je60"]
+radius = 31.0483
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ycmr1"]
+radius = 28.1603
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2jwna"]
+radius = 25.318
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sgc6j"]
+radius = 29.1548
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jriq2"]
+shader = ExtResource("4_n3cqh")
+shader_parameter/screen_resolution = Vector2(480, 270)
+shader_parameter/scanline_intensity = 0.3
+shader_parameter/color_bleed_weight = 0.35
+
+[node name="Level2" type="Node2D"]
+
+[node name="PromptRocket" type="Node2D" parent="."]
+
+[node name="RocketImage" type="Sprite2D" parent="PromptRocket"]
+position = Vector2(401, 65)
+scale = Vector2(11, 11)
+texture = ExtResource("1_ehjmi")
+region_enabled = true
+region_rect = Rect2(17.7681, 5.44741, 28.8892, 41.2097)
+
+[node name="Container" type="Node2D" parent="PromptRocket"]
+
+[node name="Slot 1" type="Area2D" parent="PromptRocket/Container"]
+position = Vector2(397, -49)
+
+[node name="Slot BG" type="Sprite2D" parent="PromptRocket/Container/Slot 1"]
+scale = Vector2(0.207928, 0.207928)
+texture = ExtResource("2_p4u3k")
+
+[node name="Icon" type="Sprite2D" parent="PromptRocket/Container/Slot 1"]
+modulate = Color(0.415158, 0.867639, 0.971188, 1)
+self_modulate = Color(1, 1, 1, 0.588235)
+scale = Vector2(0.185, 0.185)
+texture = ExtResource("4_jriq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PromptRocket/Container/Slot 1"]
+shape = SubResource("CircleShape2D_xx40l")
+
+[node name="Slot 2" type="Area2D" parent="PromptRocket/Container"]
+position = Vector2(397, 89)
+
+[node name="Slot BG" type="Sprite2D" parent="PromptRocket/Container/Slot 2"]
+scale = Vector2(0.207928, 0.207928)
+texture = ExtResource("3_n3cqh")
+
+[node name="Icon" type="Sprite2D" parent="PromptRocket/Container/Slot 2"]
+self_modulate = Color(1, 1, 1, 0.588235)
+scale = Vector2(0.185, 0.185)
+texture = ExtResource("4_jriq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PromptRocket/Container/Slot 2"]
+shape = SubResource("CircleShape2D_utdxf")
+
+[node name="Slot 3" type="Area2D" parent="PromptRocket/Container"]
+position = Vector2(397, 230)
+
+[node name="Slot BG" type="Sprite2D" parent="PromptRocket/Container/Slot 3"]
+scale = Vector2(0.207928, 0.207928)
+texture = ExtResource("3_n3cqh")
+
+[node name="Icon" type="Sprite2D" parent="PromptRocket/Container/Slot 3"]
+self_modulate = Color(1, 1, 1, 0.588235)
+scale = Vector2(0.185, 0.185)
+texture = ExtResource("4_jriq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PromptRocket/Container/Slot 3"]
+shape = SubResource("CircleShape2D_8wk15")
+
+[node name="stars" type="Node2D" parent="."]
+
+[node name="Star1" type="Area2D" parent="stars" groups=["pickable"]]
+position = Vector2(-39, 100)
+script = ExtResource("2_ms0wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="stars/Star1"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_llwst")
+region_enabled = true
+region_rect = Rect2(324.268, 33.3724, 57.1188, 57.9908)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star1"]
+shape = SubResource("CircleShape2D_0plju")
+
+[node name="Star2" type="Area2D" parent="stars" groups=["pickable"]]
+position = Vector2(-479, 50)
+script = ExtResource("2_ms0wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="stars/Star2"]
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_llwst")
+region_enabled = true
+region_rect = Rect2(812.517, 289.758, 55.1567, 55.1567)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star2"]
+shape = SubResource("CircleShape2D_ms0wi")
+
+[node name="Star3" type="Area2D" parent="stars" groups=["pickable"]]
+position = Vector2(-352, 100)
+script = ExtResource("2_ms0wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="stars/Star3"]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_llwst")
+region_enabled = true
+region_rect = Rect2(903.278, 214.531, 54.5927, 54.1423)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star3"]
+shape = SubResource("CircleShape2D_5awjf")
+
+[node name="Star4" type="Area2D" parent="stars" groups=["pickable"]]
+position = Vector2(-425, 209)
+script = ExtResource("2_ms0wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="stars/Star4"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_llwst")
+region_enabled = true
+region_rect = Rect2(1291.24, 456.383, 54.8297, 51.6685)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star4"]
+shape = SubResource("CircleShape2D_n3cqh")
+
+[node name="Star5" type="Area2D" parent="stars" groups=["pickable"]]
+position = Vector2(-180, -150)
+script = ExtResource("2_ms0wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="stars/Star5"]
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_llwst")
+region_enabled = true
+region_rect = Rect2(990.038, 128.129, 57.3368, 54.9387)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star5"]
+shape = SubResource("CircleShape2D_jriq2")
+
+[node name="Star6" type="Area2D" parent="stars" groups=["pickable"]]
+position = Vector2(-106, -57)
+script = ExtResource("2_ms0wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="stars/Star6"]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_llwst")
+region_enabled = true
+region_rect = Rect2(158.08, 376.549, 42.1607, 46.2146)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star6"]
+shape = SubResource("CircleShape2D_ehjmi")
+
+[node name="Star7" type="Area2D" parent="stars" groups=["pickable"]]
+position = Vector2(-294, 218)
+script = ExtResource("2_ms0wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="stars/Star7"]
+texture = ExtResource("1_llwst")
+region_enabled = true
+region_rect = Rect2(1765.68, 132.297, 56.7286, 53.2466)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star7"]
+shape = SubResource("CircleShape2D_p4u3k")
+
+[node name="Star8" type="Area2D" parent="stars" groups=["pickable"]]
+position = Vector2(79, 44)
+script = ExtResource("2_ms0wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="stars/Star8"]
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_llwst")
+region_enabled = true
+region_rect = Rect2(270.819, 227.619, 48.3221, 39.8087)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star8"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_70df5")
+
+[node name="Star9" type="Area2D" parent="stars" groups=["pickable"]]
+position = Vector2(-297, -119)
+script = ExtResource("2_ms0wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="stars/Star9"]
+texture = ExtResource("1_llwst")
+region_enabled = true
+region_rect = Rect2(633.643, 288.111, 54.1171, 55.568)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star9"]
+shape = SubResource("CircleShape2D_ejprb")
+
+[node name="Star10" type="Area2D" parent="stars" groups=["pickable"]]
+position = Vector2(-215, 73)
+script = ExtResource("2_ms0wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="stars/Star10"]
+texture = ExtResource("1_llwst")
+region_enabled = true
+region_rect = Rect2(439.908, 33.9182, 56.5836, 56.5836)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star10"]
+shape = SubResource("CircleShape2D_au75x")
+
+[node name="Star11" type="Area2D" parent="stars" groups=["pickable"]]
+position = Vector2(-460, -79)
+script = ExtResource("2_ms0wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="stars/Star11"]
+texture = ExtResource("1_llwst")
+region_enabled = true
+region_rect = Rect2(505.752, 224.916, 37.5773, 34.8207)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star11"]
+shape = SubResource("CircleShape2D_62f1r")
+
+[node name="Star12" type="Area2D" parent="stars" groups=["pickable"]]
+position = Vector2(-367, -42)
+script = ExtResource("2_ms0wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="stars/Star12"]
+texture = ExtResource("1_llwst")
+region_enabled = true
+region_rect = Rect2(381.925, 34.1035, 57.0752, 52.279)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star12"]
+position = Vector2(-1, 3)
+shape = SubResource("CircleShape2D_1je60")
+
+[node name="Star13" type="Area2D" parent="stars" groups=["pickable"]]
+position = Vector2(20, -60)
+script = ExtResource("2_ms0wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="stars/Star13"]
+texture = ExtResource("1_llwst")
+region_enabled = true
+region_rect = Rect2(1588.31, 454.076, 56.6827, 56.0288)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star13"]
+shape = SubResource("CircleShape2D_ycmr1")
+
+[node name="Star14" type="Area2D" parent="stars" groups=["pickable"]]
+position = Vector2(-159, 199)
+script = ExtResource("2_ms0wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="stars/Star14"]
+texture = ExtResource("1_llwst")
+region_enabled = true
+region_rect = Rect2(1596.03, 214.222, 54.0708, 54.4219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star14"]
+shape = SubResource("CircleShape2D_2jwna")
+
+[node name="Star15" type="Area2D" parent="stars" groups=["pickable"]]
+position = Vector2(-237, -28)
+script = ExtResource("2_ms0wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="stars/Star15"]
+texture = ExtResource("1_llwst")
+region_enabled = true
+region_rect = Rect2(962.587, 215.629, 52.8928, 53.9549)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star15"]
+shape = SubResource("CircleShape2D_sgc6j")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_5awjf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+process_mode = 4
+physics_interpolation_mode = 2
+visible = false
+
+[node name="ScreenBlur Effect" type="ColorRect" parent="Camera2D/CanvasLayer"]
+material = SubResource("ShaderMaterial_jriq2")
+offset_left = -28.0
+offset_top = -27.0
+offset_right = 1179.0
+offset_bottom = 688.0
+
+[connection signal="input_event" from="stars/Star1" to="stars/Star1" method="_on_area_input_event"]
+[connection signal="input_event" from="stars/Star2" to="stars/Star2" method="_on_area_input_event"]
+[connection signal="input_event" from="stars/Star3" to="stars/Star3" method="_on_area_input_event"]
+[connection signal="input_event" from="stars/Star4" to="stars/Star4" method="_on_area_input_event"]
+[connection signal="input_event" from="stars/Star5" to="stars/Star5" method="_on_area_input_event"]
+[connection signal="input_event" from="stars/Star6" to="stars/Star6" method="_on_area_input_event"]
+[connection signal="input_event" from="stars/Star7" to="stars/Star7" method="_on_area_input_event"]
+[connection signal="input_event" from="stars/Star8" to="stars/Star8" method="_on_area_input_event"]
+[connection signal="input_event" from="stars/Star9" to="stars/Star9" method="_on_area_input_event"]
+[connection signal="input_event" from="stars/Star10" to="stars/Star10" method="_on_area_input_event"]
+[connection signal="input_event" from="stars/Star11" to="stars/Star11" method="_on_area_input_event"]
+[connection signal="input_event" from="stars/Star12" to="stars/Star12" method="_on_area_input_event"]
+[connection signal="input_event" from="stars/Star13" to="stars/Star13" method="_on_area_input_event"]
+[connection signal="input_event" from="stars/Star14" to="stars/Star14" method="_on_area_input_event"]
+[connection signal="input_event" from="stars/Star15" to="stars/Star15" method="_on_area_input_event"]

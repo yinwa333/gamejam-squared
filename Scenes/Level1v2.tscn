@@ -1,94 +1,394 @@
-[gd_scene load_steps=13 format=3 uid="uid://dfen6ycr0ybqu"]
+[gd_scene load_steps=31 format=3 uid="uid://dfen6ycr0ybqu"]
 
 [ext_resource type="Script" uid="uid://bou2y3fmbwg7" path="res://Scripts/level_1v_2.gd" id="1_d5uqr"]
 [ext_resource type="Texture2D" uid="uid://c00dtefq861x3" path="res://Assets/Placeholder/Kenny Icons/d3.png" id="1_j0q3q"]
 [ext_resource type="Texture2D" uid="uid://je12mjsjuynj" path="res://Assets/Placeholder/Kenny Icons/pawn.png" id="2_18tfw"]
 [ext_resource type="Texture2D" uid="uid://dld7q1i5f12w3" path="res://Assets/Placeholder/Kenny Particles/fire_01.png" id="2_v26kh"]
 [ext_resource type="PackedScene" uid="uid://dsv11pqxhbr6g" path="res://Scenes/Tool Scenes/Lv1_NodePBG.tscn" id="2_x1ud1"]
+[ext_resource type="Texture2D" uid="uid://dehqaa2l35e5w" path="res://Assets/Placeholder/stars.png" id="3_mrchc"]
 [ext_resource type="Script" uid="uid://77gd35b0glxx" path="res://Scripts/lv_1_object.gd" id="5_1v14a"]
-[ext_resource type="Texture2D" uid="uid://dl8cglkqyfrno" path="res://Assets/Placeholder/Kenny Particles/magic_01.png" id="7_3irg8"]
-[ext_resource type="Texture2D" uid="uid://b1g2cms67r3o6" path="res://Assets/Placeholder/Kenny Particles/light_01.png" id="8_3irg8"]
-[ext_resource type="Texture2D" uid="uid://buah722l1wbev" path="res://Assets/Placeholder/Kenny Particles/magic_02.png" id="8_20enw"]
+[ext_resource type="Texture2D" uid="uid://ce6hoxjmve245" path="res://Assets/Placeholder/stars and symbols (1).png" id="7_5owgt"]
+[ext_resource type="Shader" uid="uid://dq7h3vy1g12kw" path="res://Scripts/Blur.gdshader" id="9_mrchc"]
+[ext_resource type="Shader" uid="uid://dv2giuhpvxg11" path="res://Scripts/speedlines.gdshader" id="11_5owgt"]
+[ext_resource type="Script" uid="uid://s1p3ugnmu8y6" path="res://Scripts/camera_2d.gd" id="11_x7uy3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w2fg5"]
-radius = 51.0882
+radius = 61.0328
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrchc"]
-radius = 39.0
-height = 78.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_c80vt"]
+radius = 46.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mrchc"]
+radius = 43.4166
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3irg8"]
+radius = 60.1332
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x7uy3"]
+radius = 45.0111
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5owgt"]
+radius = 36.0555
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_60gv5"]
 radius = 48.0416
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_65rpd"]
+radius = 44.0114
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_01vnj"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_stors"]
+radius = 48.1664
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t7rsf"]
+radius = 36.6742
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vrdms"]
+radius = 44.0114
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o2vog"]
+radius = 44.1814
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n86mr"]
+radius = 47.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3up6v"]
+radius = 48.1664
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_x7uy3"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x7uy3"]
+noise = SubResource("FastNoiseLite_x7uy3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c80vt"]
+shader = ExtResource("11_5owgt")
+shader_parameter/noise = SubResource("NoiseTexture2D_x7uy3")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_count = 2.0
+shader_parameter/line_density = 0.129
+shader_parameter/line_faloff = 0.352
+shader_parameter/mask_size = 0.0
+shader_parameter/mask_edge = 0.284
+shader_parameter/animation_speed = 7.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mrchc"]
+shader = ExtResource("9_mrchc")
+shader_parameter/screen_resolution = Vector2(480, 270)
+shader_parameter/scanline_intensity = 0.3
+shader_parameter/color_bleed_weight = 0.35
 
 [node name="Level1v2" type="Node2D"]
 script = ExtResource("1_d5uqr")
 
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 301.0
+autostart = true
+
 [node name="Static BG" type="Node2D" parent="."]
 
 [node name="BG" type="Sprite2D" parent="Static BG"]
-self_modulate = Color(0.0955307, 0.124749, 0.190672, 1)
+self_modulate = Color(0.066511, 0.0901732, 0.143575, 1)
 scale = Vector2(38.7289, 22.1481)
 texture = ExtResource("1_j0q3q")
 
+[node name="Sprite2D" type="Sprite2D" parent="Static BG"]
+self_modulate = Color(1, 1, 1, 0.129412)
+position = Vector2(0, 217)
+scale = Vector2(1.46181, 1.46181)
+texture = ExtResource("3_mrchc")
+
 [node name="Texture" type="Sprite2D" parent="Static BG"]
-self_modulate = Color(0.819068, 0.682889, 0.264257, 1)
+self_modulate = Color(0.719909, 0.692785, 0.660166, 1)
 position = Vector2(674, 3.05176e-05)
 scale = Vector2(4.48298, 4.48298)
 texture = ExtResource("2_v26kh")
 
 [node name="Lv1NodePbg" parent="." instance=ExtResource("2_x1ud1")]
+modulate = Color(1, 1, 1, 0.329412)
 position = Vector2(869, -342)
 rotation = -0.383972
 
-[node name="Lv1Object" type="RigidBody2D" parent="."]
+[node name="Stars" type="Node2D" parent="."]
+
+[node name="Lv1Object" type="RigidBody2D" parent="Stars"]
 position = Vector2(552, -391)
 collision_layer = 2
 collision_mask = 2
+input_pickable = true
+gravity_scale = 0.0
+linear_velocity = Vector2(-500, 650)
+linear_damp_mode = 1
+script = ExtResource("5_1v14a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stars/Lv1Object"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(324.268, 33.3724, 57.1188, 57.9908)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stars/Lv1Object"]
+shape = SubResource("CircleShape2D_w2fg5")
+
+[node name="Lv1Object2" type="RigidBody2D" parent="Stars"]
+position = Vector2(661, -241)
+input_pickable = true
+gravity_scale = 0.0
+linear_velocity = Vector2(-700, 350)
+linear_damp_mode = 1
+script = ExtResource("5_1v14a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stars/Lv1Object2"]
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(812.517, 289.758, 55.1567, 55.1567)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stars/Lv1Object2"]
+shape = SubResource("CircleShape2D_c80vt")
+
+[node name="Lv1Object3" type="RigidBody2D" parent="Stars"]
+position = Vector2(239, -391)
+collision_layer = 4
+collision_mask = 4
 input_pickable = true
 gravity_scale = 0.0
 linear_velocity = Vector2(-400, 300)
 linear_damp_mode = 1
 script = ExtResource("5_1v14a")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lv1Object"]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("8_20enw")
+[node name="Sprite2D" type="Sprite2D" parent="Stars/Lv1Object3"]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(903.278, 214.531, 54.5927, 54.1423)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lv1Object"]
-shape = SubResource("CircleShape2D_w2fg5")
-
-[node name="Lv1Object2" type="RigidBody2D" parent="."]
-position = Vector2(661, -241)
-input_pickable = true
-gravity_scale = 0.0
-linear_velocity = Vector2(-500, 250)
-linear_damp_mode = 1
-script = ExtResource("5_1v14a")
-
-[node name="Sprite2D" type="Sprite2D" parent="Lv1Object2"]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("7_3irg8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lv1Object2"]
-position = Vector2(0, 3)
-shape = SubResource("CapsuleShape2D_mrchc")
-
-[node name="Lv1Object3" type="RigidBody2D" parent="."]
-position = Vector2(239, -391)
-collision_layer = 4
-collision_mask = 4
-input_pickable = true
-gravity_scale = 0.0
-linear_velocity = Vector2(-300, 200)
-linear_damp_mode = 1
-script = ExtResource("5_1v14a")
-
-[node name="Sprite2D" type="Sprite2D" parent="Lv1Object3"]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("8_3irg8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lv1Object3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stars/Lv1Object3"]
 shape = SubResource("CircleShape2D_mrchc")
+
+[node name="Lv1Object4" type="RigidBody2D" parent="Stars"]
+position = Vector2(898, -470)
+collision_layer = 8
+collision_mask = 8
+input_pickable = true
+gravity_scale = 0.0
+linear_velocity = Vector2(-600, 700)
+linear_damp_mode = 1
+script = ExtResource("5_1v14a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stars/Lv1Object4"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(1291.24, 456.383, 54.8297, 51.6685)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stars/Lv1Object4"]
+shape = SubResource("CircleShape2D_3irg8")
+
+[node name="Lv1Object5" type="RigidBody2D" parent="Stars"]
+position = Vector2(598, -849)
+collision_layer = 16
+collision_mask = 16
+input_pickable = true
+gravity_scale = 0.0
+linear_velocity = Vector2(-500, 500)
+linear_damp_mode = 1
+script = ExtResource("5_1v14a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stars/Lv1Object5"]
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(990.038, 128.129, 57.3368, 54.9387)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stars/Lv1Object5"]
+shape = SubResource("CircleShape2D_x7uy3")
+
+[node name="Lv1Object6" type="RigidBody2D" parent="Stars"]
+position = Vector2(485, -548)
+collision_layer = 32
+collision_mask = 32
+input_pickable = true
+gravity_scale = 0.0
+linear_velocity = Vector2(-500, 450)
+linear_damp_mode = 1
+script = ExtResource("5_1v14a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stars/Lv1Object6"]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(158.08, 376.549, 42.1607, 46.2146)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stars/Lv1Object6"]
+shape = SubResource("CircleShape2D_5owgt")
+
+[node name="Lv1Object7" type="RigidBody2D" parent="Stars"]
+position = Vector2(990, -297)
+collision_layer = 64
+collision_mask = 64
+input_pickable = true
+gravity_scale = 0.0
+linear_velocity = Vector2(-700, 450)
+linear_damp_mode = 1
+script = ExtResource("5_1v14a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stars/Lv1Object7"]
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(1765.68, 132.297, 56.7286, 53.2466)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stars/Lv1Object7"]
+shape = SubResource("CircleShape2D_60gv5")
+
+[node name="Lv1Object8" type="RigidBody2D" parent="Stars"]
+position = Vector2(1019, -112)
+collision_layer = 128
+collision_mask = 128
+input_pickable = true
+gravity_scale = 0.0
+linear_velocity = Vector2(-600, 500)
+linear_damp_mode = 1
+script = ExtResource("5_1v14a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stars/Lv1Object8"]
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(270.819, 227.619, 48.3221, 39.8087)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stars/Lv1Object8"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_65rpd")
+
+[node name="Lv1Object9" type="RigidBody2D" parent="Stars"]
+position = Vector2(766, -275)
+collision_layer = 256
+collision_mask = 256
+input_pickable = true
+gravity_scale = 0.0
+linear_velocity = Vector2(-650, 400)
+linear_damp_mode = 1
+script = ExtResource("5_1v14a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stars/Lv1Object9"]
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(633.643, 288.111, 54.1171, 55.568)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stars/Lv1Object9"]
+shape = SubResource("CircleShape2D_01vnj")
+
+[node name="Lv1Object10" type="RigidBody2D" parent="Stars"]
+position = Vector2(1492, -451)
+collision_layer = 512
+collision_mask = 512
+input_pickable = true
+gravity_scale = 0.0
+linear_velocity = Vector2(-460, 520)
+linear_damp_mode = 1
+script = ExtResource("5_1v14a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stars/Lv1Object10"]
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(439.908, 33.9182, 56.5836, 56.5836)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stars/Lv1Object10"]
+shape = SubResource("CircleShape2D_stors")
+
+[node name="Lv1Object11" type="RigidBody2D" parent="Stars"]
+position = Vector2(784, -448)
+collision_layer = 1024
+collision_mask = 1024
+input_pickable = true
+gravity_scale = 0.0
+linear_velocity = Vector2(-700, 620)
+linear_damp_mode = 1
+script = ExtResource("5_1v14a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stars/Lv1Object11"]
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(505.752, 224.916, 37.5773, 34.8207)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stars/Lv1Object11"]
+shape = SubResource("CircleShape2D_t7rsf")
+
+[node name="Lv1Object12" type="RigidBody2D" parent="Stars"]
+position = Vector2(1200, -428)
+collision_layer = 2048
+collision_mask = 2048
+input_pickable = true
+gravity_scale = 0.0
+linear_velocity = Vector2(-520, 620)
+linear_damp_mode = 1
+script = ExtResource("5_1v14a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stars/Lv1Object12"]
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(381.925, 34.1035, 57.0752, 52.279)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stars/Lv1Object12"]
+position = Vector2(-1, 3)
+shape = SubResource("CircleShape2D_vrdms")
+
+[node name="Lv1Object13" type="RigidBody2D" parent="Stars"]
+position = Vector2(611, -551)
+collision_layer = 4096
+collision_mask = 4096
+input_pickable = true
+gravity_scale = 0.0
+linear_velocity = Vector2(-620, 350)
+linear_damp_mode = 1
+script = ExtResource("5_1v14a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stars/Lv1Object13"]
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(1588.31, 454.076, 56.6827, 56.0288)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stars/Lv1Object13"]
+shape = SubResource("CircleShape2D_o2vog")
+
+[node name="Lv1Object14" type="RigidBody2D" parent="Stars"]
+position = Vector2(1458, -768)
+collision_layer = 8192
+collision_mask = 8192
+input_pickable = true
+gravity_scale = 0.0
+linear_velocity = Vector2(-580, 470)
+linear_damp_mode = 1
+script = ExtResource("5_1v14a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stars/Lv1Object14"]
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(1596.03, 214.222, 54.0708, 54.4219)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stars/Lv1Object14"]
+shape = SubResource("CircleShape2D_n86mr")
+
+[node name="Lv1Object15" type="RigidBody2D" parent="Stars"]
+position = Vector2(1052, -804)
+collision_layer = 16384
+collision_mask = 16384
+input_pickable = true
+gravity_scale = 0.0
+linear_velocity = Vector2(-61, 575)
+linear_damp_mode = 1
+script = ExtResource("5_1v14a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stars/Lv1Object15"]
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(962.587, 215.629, 52.8928, 53.9549)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stars/Lv1Object15"]
+shape = SubResource("CircleShape2D_3up6v")
 
 [node name="Foreground UI" type="Node2D" parent="."]
 
@@ -111,26 +411,183 @@ texture = ExtResource("2_18tfw")
 [node name="star1" type="Sprite2D" parent="Node2D"]
 visible = false
 position = Vector2(476, 199)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("8_20enw")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(324.268, 33.3724, 57.1188, 57.9908)
 
 [node name="star2" type="Sprite2D" parent="Node2D"]
 visible = false
 position = Vector2(421, 223)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("7_3irg8")
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(812.517, 289.758, 55.1567, 55.1567)
 
 [node name="star3" type="Sprite2D" parent="Node2D"]
 visible = false
 position = Vector2(485, 190)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("8_3irg8")
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(903.278, 214.531, 54.5927, 54.1423)
+
+[node name="star4" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(518, 187)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(1291.24, 456.383, 54.8297, 51.6685)
+
+[node name="star5" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(393.5, 253.25)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(990.038, 128.129, 57.3368, 54.9387)
+
+[node name="star6" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(523, 264)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(158.08, 376.549, 42.1607, 46.2146)
+
+[node name="star7" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(494, 252)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(1765.68, 132.297, 56.7286, 53.2466)
+
+[node name="star8" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(509, 211)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(270.819, 227.619, 48.3221, 39.8087)
+
+[node name="star9" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(382, 267)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(633.643, 288.111, 54.1171, 55.568)
+
+[node name="star10" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(520, 169)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(439.908, 33.9182, 56.5836, 56.5836)
+
+[node name="star11" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(531, 254)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(505.752, 224.916, 37.5773, 34.8207)
+
+[node name="star12" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(334, 243)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(381.925, 34.1035, 57.0752, 52.279)
+
+[node name="star13" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(506, 221)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(1588.31, 454.076, 56.6827, 56.0288)
+
+[node name="star14" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(434, 147)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(1596.03, 214.222, 54.0708, 54.4219)
+
+[node name="star15" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(423, 252)
+texture = ExtResource("7_5owgt")
+region_enabled = true
+region_rect = Rect2(962.587, 215.629, 52.8928, 53.9549)
+
+[node name="TimeLeft" type="RichTextLabel" parent="."]
+offset_left = -544.0
+offset_top = -213.0
+offset_right = -414.0
+offset_bottom = -149.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "00:00"
+
+[node name="Prompt" type="RichTextLabel" parent="."]
+offset_left = -544.0
+offset_top = -299.0
+offset_right = -253.0
+offset_bottom = -206.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "RETRIEVE SAMPLES FOR HQ ON EARTH"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("11_x7uy3")
 
-[connection signal="mouse_entered" from="Lv1Object" to="." method="_star1_mouse_entered"]
-[connection signal="mouse_exited" from="Lv1Object" to="." method="_star1_mouse_exited"]
-[connection signal="mouse_entered" from="Lv1Object2" to="." method="_star2_mouse_entered"]
-[connection signal="mouse_exited" from="Lv1Object2" to="." method="_star2_mouse_exited"]
-[connection signal="mouse_entered" from="Lv1Object3" to="." method="_star3_mouse_entered"]
-[connection signal="mouse_exited" from="Lv1Object3" to="." method="_star3_mouse_exited"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+process_mode = 4
+physics_interpolation_mode = 2
+
+[node name="Lines" type="ColorRect" parent="Camera2D/CanvasLayer"]
+material = SubResource("ShaderMaterial_c80vt")
+offset_left = -16.0
+offset_top = -14.0
+offset_right = 1173.0
+offset_bottom = 667.0
+
+[node name="ScreenBlur Effect" type="ColorRect" parent="Camera2D/CanvasLayer"]
+material = SubResource("ShaderMaterial_mrchc")
+offset_left = -28.0
+offset_top = -27.0
+offset_right = 1179.0
+offset_bottom = 688.0
+
+[connection signal="mouse_entered" from="Stars/Lv1Object" to="." method="_star1_mouse_entered"]
+[connection signal="mouse_exited" from="Stars/Lv1Object" to="." method="_star1_mouse_exited"]
+[connection signal="mouse_entered" from="Stars/Lv1Object2" to="." method="_star2_mouse_entered"]
+[connection signal="mouse_exited" from="Stars/Lv1Object2" to="." method="_star2_mouse_exited"]
+[connection signal="mouse_entered" from="Stars/Lv1Object3" to="." method="_star3_mouse_entered"]
+[connection signal="mouse_exited" from="Stars/Lv1Object3" to="." method="_star3_mouse_exited"]
+[connection signal="mouse_entered" from="Stars/Lv1Object4" to="." method="_star4_mouse_entered"]
+[connection signal="mouse_exited" from="Stars/Lv1Object4" to="." method="_star4_mouse_exited"]
+[connection signal="mouse_entered" from="Stars/Lv1Object5" to="." method="_star5_mouse_entered"]
+[connection signal="mouse_exited" from="Stars/Lv1Object5" to="." method="_star5_mouse_exited"]
+[connection signal="mouse_entered" from="Stars/Lv1Object6" to="." method="_star6_mouse_entered"]
+[connection signal="mouse_exited" from="Stars/Lv1Object6" to="." method="_star6_mouse_exited"]
+[connection signal="mouse_entered" from="Stars/Lv1Object7" to="." method="_star7_mouse_entered"]
+[connection signal="mouse_exited" from="Stars/Lv1Object7" to="." method="_star7_mouse_exited"]
+[connection signal="mouse_entered" from="Stars/Lv1Object8" to="." method="_star8_mouse_entered"]
+[connection signal="mouse_exited" from="Stars/Lv1Object8" to="." method="_star8_mouse_exited"]
+[connection signal="mouse_entered" from="Stars/Lv1Object9" to="." method="_star9_mouse_entered"]
+[connection signal="mouse_exited" from="Stars/Lv1Object9" to="." method="_star9_mouse_exited"]
+[connection signal="mouse_entered" from="Stars/Lv1Object10" to="." method="_star10_mouse_entered"]
+[connection signal="mouse_exited" from="Stars/Lv1Object10" to="." method="_star10_mouse_exited"]
+[connection signal="mouse_entered" from="Stars/Lv1Object11" to="." method="_star11_mouse_entered"]
+[connection signal="mouse_exited" from="Stars/Lv1Object11" to="." method="_star11_mouse_exited"]
+[connection signal="mouse_entered" from="Stars/Lv1Object12" to="." method="_star12_mouse_entered"]
+[connection signal="mouse_exited" from="Stars/Lv1Object12" to="." method="_star12_mouse_exited"]
+[connection signal="mouse_entered" from="Stars/Lv1Object13" to="." method="_star13_mouse_entered"]
+[connection signal="mouse_exited" from="Stars/Lv1Object13" to="." method="_star13_mouse_exited"]
+[connection signal="mouse_entered" from="Stars/Lv1Object14" to="." method="_star14_mouse_entered"]
+[connection signal="mouse_exited" from="Stars/Lv1Object14" to="." method="_star14_mouse_exited"]
+[connection signal="mouse_entered" from="Stars/Lv1Object15" to="." method="_star15_mouse_entered"]
+[connection signal="mouse_exited" from="Stars/Lv1Object15" to="." method="_star15_mouse_exited"]
