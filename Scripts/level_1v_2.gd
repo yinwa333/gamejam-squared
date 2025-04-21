@@ -34,33 +34,34 @@ var mouse_left_down: bool = false
 @onready var star_8: RigidBody2D = $Stars/Lv1Object8
 @onready var star_8_ui: Sprite2D = $Node2D/star8
 
+@onready var star_9: RigidBody2D = $Stars/Lv1Object9
+@onready var star_9_ui: Sprite2D = $Node2D/star9
 
-@onready var star_9: Sprite2D = $Node2D/star9
-@onready var star_10: Sprite2D = $Node2D/star10
-@onready var star_11: Sprite2D = $Node2D/star11
-@onready var star_12: Sprite2D = $Node2D/star12
-@onready var star_13: Sprite2D = $Node2D/star13
-@onready var star_14: Sprite2D = $Node2D/star14
-@onready var star_15: Sprite2D = $Node2D/star15
+@onready var star_10: RigidBody2D = $Stars/Lv1Object10
+@onready var star_10_ui: Sprite2D = $Node2D/star10
 
-
-@onready var lv_1_object_9: RigidBody2D = $Stars/Lv1Object9
-@onready var lv_1_object_10: RigidBody2D = $Stars/Lv1Object10
-@onready var lv_1_object_11: RigidBody2D = $Stars/Lv1Object11
-@onready var lv_1_object_12: RigidBody2D = $Stars/Lv1Object12
-@onready var lv_1_object_13: RigidBody2D = $Stars/Lv1Object13
-@onready var lv_1_object_14: RigidBody2D = $Stars/Lv1Object14
-@onready var lv_1_object_15: RigidBody2D = $Stars/Lv1Object15
+@onready var star_11: RigidBody2D = $Stars/Lv1Object11
+@onready var star_11_ui: Sprite2D = $Node2D/star11
 
 
+@onready var star_12: RigidBody2D = $Stars/Lv1Object12
+@onready var star_12_ui: Sprite2D = $Node2D/star12
 
+@onready var star_13: RigidBody2D = $Stars/Lv1Object13
+@onready var star_13_ui: Sprite2D = $Node2D/star13
 
+@onready var star_14: RigidBody2D = $Stars/Lv1Object14
+@onready var star_14_ui: Sprite2D = $Node2D/star14
 
-
+@onready var star_15: RigidBody2D = $Stars/Lv1Object15
+@onready var star_15_ui: Sprite2D = $Node2D/star15
 
 
 
-var total_time_in_secs = 301
+@onready var next_scene_prompt: RichTextLabel = $NextScenePrompt
+
+
+
 @onready var timer: Timer = $Timer
 @onready var time_left: RichTextLabel = $TimeLeft
 
@@ -68,7 +69,8 @@ var total_time_in_secs = 301
 
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(main)
-	$Camera2D.screen_shake(4, 5000.0)
+	$Camera2D.screen_shake(7, 5000.0)
+	GlobalScript.total_time_in_secs = $Timer.time_left
 	
 	star_1_ui.visible = false
 	star_2_ui.visible = false
@@ -76,6 +78,19 @@ func _ready() -> void:
 	star_4_ui.visible = false
 	star_5_ui.visible = false
 	star_6_ui.visible = false
+	star_7_ui.visible = false
+	star_8_ui.visible = false
+	star_9_ui.visible = false
+	star_10_ui.visible = false
+	star_11_ui.visible = false
+	star_12_ui.visible = false
+	star_13_ui.visible = false
+	star_14_ui.visible = false
+	star_15_ui.visible = false
+	
+	
+	next_scene_prompt.visible = false
+	
 	pass
 
 func _input(event) -> void:
@@ -90,6 +105,7 @@ func _process(float) -> void:
 	var m = int($Timer.time_left / 60.0)
 	var s = $Timer.time_left - m * 60
 	$TimeLeft.text = '%02d:%02d' % [m, s]
+	
 	# Perform some stuff.
 	if mouse_left_down:
 		Input.set_custom_mouse_cursor(click)
@@ -98,45 +114,104 @@ func _process(float) -> void:
 			star_1_ui.visible = true
 			print("clicked")
 			
-		if hover == "star2":
+		elif hover == "star2":
 			star_2.visible = false
 			star_2_ui.visible = true
 			print("clicked")
 			
-		if hover == "star3":
+		elif hover == "star3":
 			star_3.visible = false
 			star_3_ui.visible = true
 			print("clicked")
 		
-		if hover == "star4":
+		elif hover == "star4":
 			star_4.visible = false
 			star_4_ui.visible = true
 			print("clicked")
 			
-		if hover == "star5":
+		elif hover == "star5":
 			star_5.visible = false
 			star_5_ui.visible = true
 			print("clicked")
 			
-		if hover == "star6":
+		elif hover == "star6":
 			star_6.visible = false
 			star_6_ui.visible = true
 			print("clicked")
 			
-		if hover == "star7":
+		elif hover == "star7":
 			star_7.visible = false
 			star_7_ui.visible = true
 			print("clicked")
 		
-		if hover == "star8":
+		elif hover == "star8":
 			star_8.visible = false
 			star_8_ui.visible = true
 			print("clicked")
+		
+		elif hover == "star9":
+			star_9.visible = false
+			star_9_ui.visible = true
+			print("clicked")
+		
+		elif hover == "star10":
+			star_10.visible = false
+			star_10_ui.visible = true
+			print("clicked")
+			
+		elif hover == "star11":
+			star_11.visible = false
+			star_11_ui.visible = true
+			print("clicked")
+			
+		elif hover == "star12":
+			star_12.visible = false
+			star_12_ui.visible = true
+			print("clicked")
+		
+		elif hover == "star13":
+			star_13.visible = false
+			star_13_ui.visible = true
+			print("clicked")
+		
+		elif hover == "star14":
+			star_14.visible = false
+			star_14_ui.visible = true
+			print("clicked")
+		
+		elif hover == "star15":
+			star_15.visible = false
+			star_15_ui.visible = true
+			print("clicked")
+			
+			
+			
+			
+		
+		elif star_1_ui.visible == true and star_2_ui.visible == true and star_3_ui.visible == true and star_4_ui.visible == true and star_5_ui.visible == true and star_6_ui.visible == true and star_7_ui.visible == true and star_8_ui.visible == true and star_9_ui.visible == true and star_10_ui.visible == true and star_11_ui.visible == true and star_12_ui.visible == true and star_13_ui.visible == true and star_14_ui.visible == true and star_15_ui.visible == true:
+			next_scene_prompt.visible = true
+			await get_tree().create_timer(4).timeout
+			print("time is done")
+			get_tree().change_scene_to_file("res://Scenes/Level2.tscn")
+					
 		
 		else:
 			pass
 	else:
 		Input.set_custom_mouse_cursor(main)
+
+
+
+
+
+func _on_button_pressed() -> void:
+	print("PRESSED")
+	get_tree().change_scene_to_file("res://Scenes/Level2.tscn")
+
+
+
+
+
 
 
 func _star1_mouse_entered() -> void:

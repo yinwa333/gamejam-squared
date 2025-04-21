@@ -10,3 +10,7 @@ var star1_status: bool = false
 var star2_status: bool = false
 var star3_status: bool = false
 var star4_status: bool = false
+
+
+##Timer
+var total_time_in_secs = 301

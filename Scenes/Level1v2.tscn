@@ -1,14 +1,15 @@
-[gd_scene load_steps=31 format=3 uid="uid://dfen6ycr0ybqu"]
+[gd_scene load_steps=32 format=3 uid="uid://dfen6ycr0ybqu"]
 
 [ext_resource type="Script" uid="uid://bou2y3fmbwg7" path="res://Scripts/level_1v_2.gd" id="1_d5uqr"]
 [ext_resource type="Texture2D" uid="uid://c00dtefq861x3" path="res://Assets/Placeholder/Kenny Icons/d3.png" id="1_j0q3q"]
 [ext_resource type="Texture2D" uid="uid://je12mjsjuynj" path="res://Assets/Placeholder/Kenny Icons/pawn.png" id="2_18tfw"]
 [ext_resource type="Texture2D" uid="uid://dld7q1i5f12w3" path="res://Assets/Placeholder/Kenny Particles/fire_01.png" id="2_v26kh"]
 [ext_resource type="PackedScene" uid="uid://dsv11pqxhbr6g" path="res://Scenes/Tool Scenes/Lv1_NodePBG.tscn" id="2_x1ud1"]
-[ext_resource type="Texture2D" uid="uid://dehqaa2l35e5w" path="res://Assets/Placeholder/stars.png" id="3_mrchc"]
+[ext_resource type="Texture2D" uid="uid://bc81x5cfoc8wo" path="res://Assets/Fonts/BG (1).png" id="3_5owgt"]
 [ext_resource type="Script" uid="uid://77gd35b0glxx" path="res://Scripts/lv_1_object.gd" id="5_1v14a"]
 [ext_resource type="Texture2D" uid="uid://ce6hoxjmve245" path="res://Assets/Placeholder/stars and symbols (1).png" id="7_5owgt"]
 [ext_resource type="Shader" uid="uid://dq7h3vy1g12kw" path="res://Scripts/Blur.gdshader" id="9_mrchc"]
+[ext_resource type="FontFile" uid="uid://d0deqgwnd8hoe" path="res://Assets/Fonts/SpaceMono-Bold.ttf" id="10_c80vt"]
 [ext_resource type="Shader" uid="uid://dv2giuhpvxg11" path="res://Scripts/speedlines.gdshader" id="11_5owgt"]
 [ext_resource type="Script" uid="uid://s1p3ugnmu8y6" path="res://Scripts/camera_2d.gd" id="11_x7uy3"]
 
@@ -94,20 +95,18 @@ self_modulate = Color(0.066511, 0.0901732, 0.143575, 1)
 scale = Vector2(38.7289, 22.1481)
 texture = ExtResource("1_j0q3q")
 
-[node name="Sprite2D" type="Sprite2D" parent="Static BG"]
-self_modulate = Color(1, 1, 1, 0.129412)
-position = Vector2(0, 217)
-scale = Vector2(1.46181, 1.46181)
-texture = ExtResource("3_mrchc")
+[node name="BG2" type="Sprite2D" parent="Static BG"]
+scale = Vector2(0.61, 0.61)
+texture = ExtResource("3_5owgt")
 
 [node name="Texture" type="Sprite2D" parent="Static BG"]
-self_modulate = Color(0.719909, 0.692785, 0.660166, 1)
+self_modulate = Color(1, 0.580392, 0.686275, 0.313726)
 position = Vector2(674, 3.05176e-05)
 scale = Vector2(4.48298, 4.48298)
 texture = ExtResource("2_v26kh")
 
 [node name="Lv1NodePbg" parent="." instance=ExtResource("2_x1ud1")]
-modulate = Color(1, 1, 1, 0.329412)
+modulate = Color(1, 1, 1, 0.541176)
 position = Vector2(869, -342)
 rotation = -0.383972
 
@@ -378,7 +377,7 @@ collision_layer = 16384
 collision_mask = 16384
 input_pickable = true
 gravity_scale = 0.0
-linear_velocity = Vector2(-61, 575)
+linear_velocity = Vector2(-610, 575)
 linear_damp_mode = 1
 script = ExtResource("5_1v14a")
 
@@ -526,6 +525,7 @@ offset_top = -213.0
 offset_right = -414.0
 offset_bottom = -149.0
 theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("10_c80vt")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "00:00"
@@ -533,12 +533,22 @@ text = "00:00"
 [node name="Prompt" type="RichTextLabel" parent="."]
 offset_left = -544.0
 offset_top = -299.0
-offset_right = -253.0
+offset_right = -227.0
 offset_bottom = -206.0
 theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("10_c80vt")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "RETRIEVE SAMPLES FOR HQ ON EARTH"
+
+[node name="NextScenePrompt" type="RichTextLabel" parent="."]
+offset_left = -146.0
+offset_top = -15.0
+offset_right = 154.0
+offset_bottom = 16.0
+theme_override_fonts/normal_font = ExtResource("10_c80vt")
+theme_override_font_sizes/normal_font_size = 18
+text = "INITIATING SORTING SAMPLES"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("11_x7uy3")

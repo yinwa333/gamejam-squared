@@ -8,7 +8,7 @@ var rng = RandomNumberGenerator.new()
 var shake_strength: float = 0.0
 var active_shake_time: float = 0.0
 
-var shake_decay: float = 1
+var shake_decay: float = .03
 
 var shake_time: float = 0.0
 var shake_time_speed: float = 20.0

@@ -1,6 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://cbm7of6leg2wu"]
+[gd_scene load_steps=34 format=3 uid="uid://cbm7of6leg2wu"]
 
+[ext_resource type="Script" uid="uid://535fiwej02kd" path="res://Scripts/level_2.gd" id="1_au75x"]
 [ext_resource type="Texture2D" uid="uid://daiqh6xaqwf8c" path="res://Assets/Placeholder/rocket1.png" id="1_ehjmi"]
+[ext_resource type="Texture2D" uid="uid://cgseo2gi16emj" path="res://Assets/loop-1.jpg" id="1_ejprb"]
 [ext_resource type="Texture2D" uid="uid://ce6hoxjmve245" path="res://Assets/Placeholder/stars and symbols (1).png" id="1_llwst"]
 [ext_resource type="Script" uid="uid://ckc48h3tbi5do" path="res://Scripts/lv_2_object.gd" id="2_ms0wi"]
 [ext_resource type="Texture2D" uid="uid://cx56ghaqvhlss" path="res://Assets/Placeholder/Honeycomb_Blue.png" id="2_p4u3k"]
@@ -8,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://dkpdphnm6rw6i" path="res://Assets/Placeholder/Honeycomb_Black.png" id="3_n3cqh"]
 [ext_resource type="Texture2D" uid="uid://dehqaa2l35e5w" path="res://Assets/Placeholder/Stars.png" id="4_jriq2"]
 [ext_resource type="Shader" uid="uid://dq7h3vy1g12kw" path="res://Scripts/Blur.gdshader" id="4_n3cqh"]
+[ext_resource type="Texture2D" uid="uid://bc4lnnewksshs" path="res://Assets/borders.png" id="7_70df5"]
+[ext_resource type="Texture2D" uid="uid://dhevjkv6rdqtc" path="res://Assets/Placeholder/rocket4.png" id="8_1je60"]
+[ext_resource type="Texture2D" uid="uid://bt5akeaq0r4l1" path="res://Assets/Placeholder/rocket5.png" id="9_ycmr1"]
+[ext_resource type="FontFile" uid="uid://d0deqgwnd8hoe" path="res://Assets/Fonts/SpaceMono-Bold.ttf" id="10_62f1r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xx40l"]
 radius = 66.0303
@@ -70,68 +76,258 @@ shader_parameter/scanline_intensity = 0.3
 shader_parameter/color_bleed_weight = 0.35
 
 [node name="Level2" type="Node2D"]
+script = ExtResource("1_au75x")
 
-[node name="PromptRocket" type="Node2D" parent="."]
+[node name="BG Environment" type="Node2D" parent="."]
+modulate = Color(0.359069, 0.359069, 0.359069, 1)
+scale = Vector2(0.685, 0.685)
 
-[node name="RocketImage" type="Sprite2D" parent="PromptRocket"]
-position = Vector2(401, 65)
+[node name="BG" type="Sprite2D" parent="BG Environment"]
+texture = ExtResource("1_ejprb")
+
+[node name="PromptRocket1" type="Node2D" parent="."]
+
+[node name="RocketImage" type="Sprite2D" parent="PromptRocket1"]
+position = Vector2(319, 47.5)
 scale = Vector2(11, 11)
 texture = ExtResource("1_ehjmi")
 region_enabled = true
 region_rect = Rect2(17.7681, 5.44741, 28.8892, 41.2097)
 
-[node name="Container" type="Node2D" parent="PromptRocket"]
+[node name="Container" type="Node2D" parent="PromptRocket1"]
+position = Vector2(-82, -17.5)
 
-[node name="Slot 1" type="Area2D" parent="PromptRocket/Container"]
+[node name="Slot 1" type="Area2D" parent="PromptRocket1/Container" groups=["req 5"]]
 position = Vector2(397, -49)
 
-[node name="Slot BG" type="Sprite2D" parent="PromptRocket/Container/Slot 1"]
+[node name="Slot BG" type="Sprite2D" parent="PromptRocket1/Container/Slot 1"]
 scale = Vector2(0.207928, 0.207928)
 texture = ExtResource("2_p4u3k")
 
-[node name="Icon" type="Sprite2D" parent="PromptRocket/Container/Slot 1"]
+[node name="Icon" type="Sprite2D" parent="PromptRocket1/Container/Slot 1"]
 modulate = Color(0.415158, 0.867639, 0.971188, 1)
 self_modulate = Color(1, 1, 1, 0.588235)
 scale = Vector2(0.185, 0.185)
 texture = ExtResource("4_jriq2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PromptRocket/Container/Slot 1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PromptRocket1/Container/Slot 1"]
 shape = SubResource("CircleShape2D_xx40l")
 
-[node name="Slot 2" type="Area2D" parent="PromptRocket/Container"]
+[node name="Slot 2" type="Area2D" parent="PromptRocket1/Container" groups=["req 5"]]
 position = Vector2(397, 89)
 
-[node name="Slot BG" type="Sprite2D" parent="PromptRocket/Container/Slot 2"]
+[node name="Slot BG" type="Sprite2D" parent="PromptRocket1/Container/Slot 2"]
 scale = Vector2(0.207928, 0.207928)
 texture = ExtResource("3_n3cqh")
 
-[node name="Icon" type="Sprite2D" parent="PromptRocket/Container/Slot 2"]
+[node name="Icon" type="Sprite2D" parent="PromptRocket1/Container/Slot 2"]
 self_modulate = Color(1, 1, 1, 0.588235)
 scale = Vector2(0.185, 0.185)
 texture = ExtResource("4_jriq2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PromptRocket/Container/Slot 2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PromptRocket1/Container/Slot 2"]
 shape = SubResource("CircleShape2D_utdxf")
 
-[node name="Slot 3" type="Area2D" parent="PromptRocket/Container"]
+[node name="Slot 3" type="Area2D" parent="PromptRocket1/Container" groups=["req 5"]]
 position = Vector2(397, 230)
 
-[node name="Slot BG" type="Sprite2D" parent="PromptRocket/Container/Slot 3"]
+[node name="Slot BG" type="Sprite2D" parent="PromptRocket1/Container/Slot 3"]
 scale = Vector2(0.207928, 0.207928)
 texture = ExtResource("3_n3cqh")
 
-[node name="Icon" type="Sprite2D" parent="PromptRocket/Container/Slot 3"]
+[node name="Icon" type="Sprite2D" parent="PromptRocket1/Container/Slot 3"]
 self_modulate = Color(1, 1, 1, 0.588235)
 scale = Vector2(0.185, 0.185)
 texture = ExtResource("4_jriq2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PromptRocket/Container/Slot 3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PromptRocket1/Container/Slot 3"]
 shape = SubResource("CircleShape2D_8wk15")
+
+[node name="Rocket Prompt" type="RichTextLabel" parent="PromptRocket1"]
+offset_left = 89.0
+offset_top = -232.0
+offset_right = 371.0
+offset_bottom = -154.0
+theme_override_fonts/normal_font = ExtResource("10_62f1r")
+theme_override_font_sizes/normal_font_size = 25
+text = "2-3 STARS WITH 
+5 CORNERS"
+
+[node name="Button" type="RichTextLabel" parent="PromptRocket1"]
+visible = false
+offset_left = 88.0
+offset_top = -154.0
+offset_right = 353.0
+offset_bottom = -108.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("10_62f1r")
+theme_override_font_sizes/normal_font_size = 20
+text = "PRESS SPACE TO LAUNCH"
+
+[node name="PromptRocket2" type="Node2D" parent="."]
+visible = false
+
+[node name="RocketImage" type="Sprite2D" parent="PromptRocket2"]
+position = Vector2(319, 47.5)
+scale = Vector2(11, 11)
+texture = ExtResource("8_1je60")
+region_enabled = true
+region_rect = Rect2(17.7681, 5.44741, 28.8892, 41.2097)
+
+[node name="Container" type="Node2D" parent="PromptRocket2"]
+position = Vector2(-82, -17.5)
+
+[node name="Slot 1" type="Area2D" parent="PromptRocket2/Container" groups=["req 3"]]
+position = Vector2(397, -49)
+
+[node name="Slot BG" type="Sprite2D" parent="PromptRocket2/Container/Slot 1"]
+scale = Vector2(0.207928, 0.207928)
+texture = ExtResource("2_p4u3k")
+
+[node name="Icon" type="Sprite2D" parent="PromptRocket2/Container/Slot 1"]
+modulate = Color(0.415158, 0.867639, 0.971188, 1)
+self_modulate = Color(1, 1, 1, 0.588235)
+scale = Vector2(0.185, 0.185)
+texture = ExtResource("4_jriq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PromptRocket2/Container/Slot 1"]
+shape = SubResource("CircleShape2D_xx40l")
+
+[node name="Slot 2" type="Area2D" parent="PromptRocket2/Container" groups=["req 3"]]
+position = Vector2(397, 89)
+
+[node name="Slot BG" type="Sprite2D" parent="PromptRocket2/Container/Slot 2"]
+scale = Vector2(0.207928, 0.207928)
+texture = ExtResource("3_n3cqh")
+
+[node name="Icon" type="Sprite2D" parent="PromptRocket2/Container/Slot 2"]
+self_modulate = Color(1, 1, 1, 0.588235)
+scale = Vector2(0.185, 0.185)
+texture = ExtResource("4_jriq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PromptRocket2/Container/Slot 2"]
+shape = SubResource("CircleShape2D_utdxf")
+
+[node name="Slot 3" type="Area2D" parent="PromptRocket2/Container" groups=["req 3"]]
+position = Vector2(397, 230)
+
+[node name="Slot BG" type="Sprite2D" parent="PromptRocket2/Container/Slot 3"]
+scale = Vector2(0.207928, 0.207928)
+texture = ExtResource("3_n3cqh")
+
+[node name="Icon" type="Sprite2D" parent="PromptRocket2/Container/Slot 3"]
+self_modulate = Color(1, 1, 1, 0.588235)
+scale = Vector2(0.185, 0.185)
+texture = ExtResource("4_jriq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PromptRocket2/Container/Slot 3"]
+shape = SubResource("CircleShape2D_8wk15")
+
+[node name="Rocket Prompt" type="RichTextLabel" parent="PromptRocket2"]
+offset_left = 89.0
+offset_top = -232.0
+offset_right = 371.0
+offset_bottom = -154.0
+theme_override_fonts/normal_font = ExtResource("10_62f1r")
+theme_override_font_sizes/normal_font_size = 25
+text = "2-3 STARS WITH 
+3 CORNERS"
+
+[node name="Button" type="RichTextLabel" parent="PromptRocket2"]
+visible = false
+offset_left = 88.0
+offset_top = -154.0
+offset_right = 353.0
+offset_bottom = -108.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("10_62f1r")
+theme_override_font_sizes/normal_font_size = 20
+text = "PRESS SPACE TO LAUNCH"
+
+[node name="PromptRocket3" type="Node2D" parent="."]
+visible = false
+
+[node name="RocketImage" type="Sprite2D" parent="PromptRocket3"]
+position = Vector2(319, 47.5)
+scale = Vector2(11, 11)
+texture = ExtResource("9_ycmr1")
+region_enabled = true
+region_rect = Rect2(17.7681, 5.44741, 28.8892, 41.2097)
+
+[node name="Container" type="Node2D" parent="PromptRocket3"]
+position = Vector2(-82, -17.5)
+
+[node name="Slot 1" type="Area2D" parent="PromptRocket3/Container"]
+position = Vector2(397, -49)
+
+[node name="Slot BG" type="Sprite2D" parent="PromptRocket3/Container/Slot 1"]
+scale = Vector2(0.207928, 0.207928)
+texture = ExtResource("2_p4u3k")
+
+[node name="Icon" type="Sprite2D" parent="PromptRocket3/Container/Slot 1"]
+modulate = Color(0.415158, 0.867639, 0.971188, 1)
+self_modulate = Color(1, 1, 1, 0.588235)
+scale = Vector2(0.185, 0.185)
+texture = ExtResource("4_jriq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PromptRocket3/Container/Slot 1"]
+shape = SubResource("CircleShape2D_xx40l")
+
+[node name="Slot 2" type="Area2D" parent="PromptRocket3/Container"]
+position = Vector2(397, 89)
+
+[node name="Slot BG" type="Sprite2D" parent="PromptRocket3/Container/Slot 2"]
+scale = Vector2(0.207928, 0.207928)
+texture = ExtResource("3_n3cqh")
+
+[node name="Icon" type="Sprite2D" parent="PromptRocket3/Container/Slot 2"]
+self_modulate = Color(1, 1, 1, 0.588235)
+scale = Vector2(0.185, 0.185)
+texture = ExtResource("4_jriq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PromptRocket3/Container/Slot 2"]
+shape = SubResource("CircleShape2D_utdxf")
+
+[node name="Slot 3" type="Area2D" parent="PromptRocket3/Container"]
+position = Vector2(397, 230)
+
+[node name="Slot BG" type="Sprite2D" parent="PromptRocket3/Container/Slot 3"]
+scale = Vector2(0.207928, 0.207928)
+texture = ExtResource("3_n3cqh")
+
+[node name="Icon" type="Sprite2D" parent="PromptRocket3/Container/Slot 3"]
+self_modulate = Color(1, 1, 1, 0.588235)
+scale = Vector2(0.185, 0.185)
+texture = ExtResource("4_jriq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PromptRocket3/Container/Slot 3"]
+shape = SubResource("CircleShape2D_8wk15")
+
+[node name="Rocket Prompt" type="RichTextLabel" parent="PromptRocket3"]
+offset_left = 89.0
+offset_top = -232.0
+offset_right = 371.0
+offset_bottom = -154.0
+theme_override_fonts/normal_font = ExtResource("10_62f1r")
+theme_override_font_sizes/normal_font_size = 25
+text = "2-3 STARS WITH 
+6 CORNERS"
+
+[node name="Button" type="RichTextLabel" parent="PromptRocket3"]
+visible = false
+offset_left = 88.0
+offset_top = -154.0
+offset_right = 353.0
+offset_bottom = -108.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("10_62f1r")
+theme_override_font_sizes/normal_font_size = 20
+text = "PRESS SPACE TO LAUNCH"
 
 [node name="stars" type="Node2D" parent="."]
 
-[node name="Star1" type="Area2D" parent="stars" groups=["pickable"]]
-position = Vector2(-39, 100)
+[node name="Star1" type="Area2D" parent="stars" groups=["7+", "pickable"]]
+position = Vector2(-283, -26)
 script = ExtResource("2_ms0wi")
 
 [node name="Sprite2D" type="Sprite2D" parent="stars/Star1"]
@@ -143,8 +339,8 @@ region_rect = Rect2(324.268, 33.3724, 57.1188, 57.9908)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star1"]
 shape = SubResource("CircleShape2D_0plju")
 
-[node name="Star2" type="Area2D" parent="stars" groups=["pickable"]]
-position = Vector2(-479, 50)
+[node name="Star2" type="Area2D" parent="stars" groups=["7+", "pickable"]]
+position = Vector2(-377, 12)
 script = ExtResource("2_ms0wi")
 
 [node name="Sprite2D" type="Sprite2D" parent="stars/Star2"]
@@ -156,8 +352,8 @@ region_rect = Rect2(812.517, 289.758, 55.1567, 55.1567)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star2"]
 shape = SubResource("CircleShape2D_ms0wi")
 
-[node name="Star3" type="Area2D" parent="stars" groups=["pickable"]]
-position = Vector2(-352, 100)
+[node name="Star3" type="Area2D" parent="stars" groups=["5", "pickable"]]
+position = Vector2(-250, 62)
 script = ExtResource("2_ms0wi")
 
 [node name="Sprite2D" type="Sprite2D" parent="stars/Star3"]
@@ -169,8 +365,8 @@ region_rect = Rect2(903.278, 214.531, 54.5927, 54.1423)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star3"]
 shape = SubResource("CircleShape2D_5awjf")
 
-[node name="Star4" type="Area2D" parent="stars" groups=["pickable"]]
-position = Vector2(-425, 209)
+[node name="Star4" type="Area2D" parent="stars" groups=["6", "pickable"]]
+position = Vector2(-323, 171)
 script = ExtResource("2_ms0wi")
 
 [node name="Sprite2D" type="Sprite2D" parent="stars/Star4"]
@@ -182,8 +378,8 @@ region_rect = Rect2(1291.24, 456.383, 54.8297, 51.6685)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star4"]
 shape = SubResource("CircleShape2D_n3cqh")
 
-[node name="Star5" type="Area2D" parent="stars" groups=["pickable"]]
-position = Vector2(-180, -150)
+[node name="Star5" type="Area2D" parent="stars" groups=["4", "pickable"]]
+position = Vector2(-7, 228)
 script = ExtResource("2_ms0wi")
 
 [node name="Sprite2D" type="Sprite2D" parent="stars/Star5"]
@@ -195,8 +391,8 @@ region_rect = Rect2(990.038, 128.129, 57.3368, 54.9387)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star5"]
 shape = SubResource("CircleShape2D_jriq2")
 
-[node name="Star6" type="Area2D" parent="stars" groups=["pickable"]]
-position = Vector2(-106, -57)
+[node name="Star6" type="Area2D" parent="stars" groups=["4", "pickable"]]
+position = Vector2(-37, 84)
 script = ExtResource("2_ms0wi")
 
 [node name="Sprite2D" type="Sprite2D" parent="stars/Star6"]
@@ -208,8 +404,8 @@ region_rect = Rect2(158.08, 376.549, 42.1607, 46.2146)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star6"]
 shape = SubResource("CircleShape2D_ehjmi")
 
-[node name="Star7" type="Area2D" parent="stars" groups=["pickable"]]
-position = Vector2(-294, 218)
+[node name="Star7" type="Area2D" parent="stars" groups=["6", "pickable"]]
+position = Vector2(-192, 180)
 script = ExtResource("2_ms0wi")
 
 [node name="Sprite2D" type="Sprite2D" parent="stars/Star7"]
@@ -220,8 +416,8 @@ region_rect = Rect2(1765.68, 132.297, 56.7286, 53.2466)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star7"]
 shape = SubResource("CircleShape2D_p4u3k")
 
-[node name="Star8" type="Area2D" parent="stars" groups=["pickable"]]
-position = Vector2(79, 44)
+[node name="Star8" type="Area2D" parent="stars" groups=["3", "pickable"]]
+position = Vector2(91, 227)
 script = ExtResource("2_ms0wi")
 
 [node name="Sprite2D" type="Sprite2D" parent="stars/Star8"]
@@ -234,8 +430,8 @@ region_rect = Rect2(270.819, 227.619, 48.3221, 39.8087)
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_70df5")
 
-[node name="Star9" type="Area2D" parent="stars" groups=["pickable"]]
-position = Vector2(-297, -119)
+[node name="Star9" type="Area2D" parent="stars" groups=["7+", "pickable"]]
+position = Vector2(33, 148)
 script = ExtResource("2_ms0wi")
 
 [node name="Sprite2D" type="Sprite2D" parent="stars/Star9"]
@@ -246,8 +442,8 @@ region_rect = Rect2(633.643, 288.111, 54.1171, 55.568)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star9"]
 shape = SubResource("CircleShape2D_ejprb")
 
-[node name="Star10" type="Area2D" parent="stars" groups=["pickable"]]
-position = Vector2(-215, 73)
+[node name="Star10" type="Area2D" parent="stars" groups=["4", "pickable"]]
+position = Vector2(-113, 35)
 script = ExtResource("2_ms0wi")
 
 [node name="Sprite2D" type="Sprite2D" parent="stars/Star10"]
@@ -258,8 +454,8 @@ region_rect = Rect2(439.908, 33.9182, 56.5836, 56.5836)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star10"]
 shape = SubResource("CircleShape2D_au75x")
 
-[node name="Star11" type="Area2D" parent="stars" groups=["pickable"]]
-position = Vector2(-460, -79)
+[node name="Star11" type="Area2D" parent="stars" groups=["7+", "pickable"]]
+position = Vector2(-326, 94)
 script = ExtResource("2_ms0wi")
 
 [node name="Sprite2D" type="Sprite2D" parent="stars/Star11"]
@@ -270,8 +466,8 @@ region_rect = Rect2(505.752, 224.916, 37.5773, 34.8207)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star11"]
 shape = SubResource("CircleShape2D_62f1r")
 
-[node name="Star12" type="Area2D" parent="stars" groups=["pickable"]]
-position = Vector2(-367, -42)
+[node name="Star12" type="Area2D" parent="stars" groups=["3", "pickable"]]
+position = Vector2(-395, 109)
 script = ExtResource("2_ms0wi")
 
 [node name="Sprite2D" type="Sprite2D" parent="stars/Star12"]
@@ -283,8 +479,8 @@ region_rect = Rect2(381.925, 34.1035, 57.0752, 52.279)
 position = Vector2(-1, 3)
 shape = SubResource("CircleShape2D_1je60")
 
-[node name="Star13" type="Area2D" parent="stars" groups=["pickable"]]
-position = Vector2(20, -60)
+[node name="Star13" type="Area2D" parent="stars" groups=["7+", "pickable"]]
+position = Vector2(-117, 232)
 script = ExtResource("2_ms0wi")
 
 [node name="Sprite2D" type="Sprite2D" parent="stars/Star13"]
@@ -295,8 +491,8 @@ region_rect = Rect2(1588.31, 454.076, 56.6827, 56.0288)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star13"]
 shape = SubResource("CircleShape2D_ycmr1")
 
-[node name="Star14" type="Area2D" parent="stars" groups=["pickable"]]
-position = Vector2(-159, 199)
+[node name="Star14" type="Area2D" parent="stars" groups=["4", "pickable"]]
+position = Vector2(-57, 161)
 script = ExtResource("2_ms0wi")
 
 [node name="Sprite2D" type="Sprite2D" parent="stars/Star14"]
@@ -307,8 +503,8 @@ region_rect = Rect2(1596.03, 214.222, 54.0708, 54.4219)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star14"]
 shape = SubResource("CircleShape2D_2jwna")
 
-[node name="Star15" type="Area2D" parent="stars" groups=["pickable"]]
-position = Vector2(-237, -28)
+[node name="Star15" type="Area2D" parent="stars" groups=["5", "pickable"]]
+position = Vector2(-179, 103)
 script = ExtResource("2_ms0wi")
 
 [node name="Sprite2D" type="Sprite2D" parent="stars/Star15"]
@@ -319,13 +515,50 @@ region_rect = Rect2(962.587, 215.629, 52.8928, 53.9549)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stars/Star15"]
 shape = SubResource("CircleShape2D_sgc6j")
 
+[node name="foreground" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="foreground"]
+scale = Vector2(0.61, 0.61)
+texture = ExtResource("7_70df5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="foreground"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="foreground/StaticBody2D"]
+polygon = PackedVector2Array(-579, -326, -590, 338, -428, 195, -464, 70, -443, -172, -179, -268, -151, -250, 82, -271, 363, -239, 515, -142, 492, 70, 463, 210, 218, 280, -185, 280, -429, 195, -589, 336, 589, 328, 585, -326)
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 301.0
+autostart = true
+
+[node name="TimeLeft" type="RichTextLabel" parent="."]
+offset_left = -544.0
+offset_top = -213.0
+offset_right = -414.0
+offset_bottom = -149.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("10_62f1r")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "00:00"
+
+[node name="Prompt" type="RichTextLabel" parent="."]
+offset_left = -544.0
+offset_top = -299.0
+offset_right = -227.0
+offset_bottom = -206.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("10_62f1r")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "SEND OFF SAMPLES FOR HQ ON EARTH"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_5awjf")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 process_mode = 4
 physics_interpolation_mode = 2
-visible = false
 
 [node name="ScreenBlur Effect" type="ColorRect" parent="Camera2D/CanvasLayer"]
 material = SubResource("ShaderMaterial_jriq2")
@@ -335,17 +568,55 @@ offset_right = 1179.0
 offset_bottom = 688.0
 
 [connection signal="input_event" from="stars/Star1" to="stars/Star1" method="_on_area_input_event"]
+[connection signal="mouse_shape_entered" from="stars/Star1" to="." method="_on_star_1_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="stars/Star1" to="." method="_on_star_1_mouse_shape_exited"]
 [connection signal="input_event" from="stars/Star2" to="stars/Star2" method="_on_area_input_event"]
+[connection signal="mouse_shape_entered" from="stars/Star2" to="." method="_on_star_2_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="stars/Star2" to="." method="_on_star_2_mouse_shape_exited"]
+[connection signal="area_entered" from="stars/Star3" to="." method="_on_star_3_area_entered"]
+[connection signal="area_exited" from="stars/Star3" to="." method="_on_star_3_area_exited"]
 [connection signal="input_event" from="stars/Star3" to="stars/Star3" method="_on_area_input_event"]
+[connection signal="mouse_shape_entered" from="stars/Star3" to="." method="_on_star_3_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="stars/Star3" to="." method="_on_star_3_mouse_shape_exited"]
 [connection signal="input_event" from="stars/Star4" to="stars/Star4" method="_on_area_input_event"]
+[connection signal="mouse_shape_entered" from="stars/Star4" to="." method="_on_star_4_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="stars/Star4" to="." method="_on_star_4_mouse_shape_exited"]
 [connection signal="input_event" from="stars/Star5" to="stars/Star5" method="_on_area_input_event"]
+[connection signal="mouse_shape_entered" from="stars/Star5" to="." method="_on_star_5_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="stars/Star5" to="." method="_on_star_5_mouse_shape_exited"]
 [connection signal="input_event" from="stars/Star6" to="stars/Star6" method="_on_area_input_event"]
+[connection signal="mouse_shape_entered" from="stars/Star6" to="." method="_on_star_6_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="stars/Star6" to="." method="_on_star_6_mouse_shape_exited"]
 [connection signal="input_event" from="stars/Star7" to="stars/Star7" method="_on_area_input_event"]
+[connection signal="mouse_shape_entered" from="stars/Star7" to="." method="_on_star_7_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="stars/Star7" to="." method="_on_star_7_mouse_shape_exited"]
+[connection signal="area_entered" from="stars/Star8" to="." method="_on_star_8_area_entered"]
+[connection signal="area_exited" from="stars/Star8" to="." method="_on_star_8_area_exited"]
 [connection signal="input_event" from="stars/Star8" to="stars/Star8" method="_on_area_input_event"]
+[connection signal="mouse_shape_entered" from="stars/Star8" to="." method="_on_star_8_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="stars/Star8" to="." method="_on_star_8_mouse_shape_exited"]
 [connection signal="input_event" from="stars/Star9" to="stars/Star9" method="_on_area_input_event"]
+[connection signal="mouse_shape_entered" from="stars/Star9" to="." method="_on_star_9_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="stars/Star9" to="." method="_on_star_9_mouse_shape_exited"]
 [connection signal="input_event" from="stars/Star10" to="stars/Star10" method="_on_area_input_event"]
+[connection signal="mouse_shape_entered" from="stars/Star10" to="." method="_on_star_10_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="stars/Star10" to="." method="_on_star_10_mouse_shape_exited"]
 [connection signal="input_event" from="stars/Star11" to="stars/Star11" method="_on_area_input_event"]
+[connection signal="mouse_shape_entered" from="stars/Star11" to="." method="_on_star_11_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="stars/Star11" to="." method="_on_star_11_mouse_shape_exited"]
+[connection signal="area_entered" from="stars/Star12" to="." method="_on_star_12_area_entered"]
+[connection signal="area_exited" from="stars/Star12" to="." method="_on_star_12_area_exited"]
 [connection signal="input_event" from="stars/Star12" to="stars/Star12" method="_on_area_input_event"]
+[connection signal="mouse_shape_entered" from="stars/Star12" to="." method="_on_star_12_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="stars/Star12" to="." method="_on_star_12_mouse_shape_exited"]
 [connection signal="input_event" from="stars/Star13" to="stars/Star13" method="_on_area_input_event"]
+[connection signal="mouse_shape_entered" from="stars/Star13" to="." method="_on_star_13_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="stars/Star13" to="." method="_on_star_13_mouse_shape_exited"]
 [connection signal="input_event" from="stars/Star14" to="stars/Star14" method="_on_area_input_event"]
+[connection signal="mouse_shape_entered" from="stars/Star14" to="." method="_on_star_14_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="stars/Star14" to="." method="_on_star_14_mouse_shape_exited"]
+[connection signal="area_entered" from="stars/Star15" to="." method="_on_star_15_area_entered"]
+[connection signal="area_exited" from="stars/Star15" to="." method="_on_star_15_area_exited"]
 [connection signal="input_event" from="stars/Star15" to="stars/Star15" method="_on_area_input_event"]
+[connection signal="mouse_shape_entered" from="stars/Star15" to="." method="_on_star_15_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="stars/Star15" to="." method="_on_star_15_mouse_shape_exited"]

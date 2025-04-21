@@ -8,12 +8,12 @@
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ina6a"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5owgt"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gnkci"]
 noise = SubResource("FastNoiseLite_ina6a")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tay7t"]
 shader = ExtResource("2_3yn62")
-shader_parameter/noise = SubResource("NoiseTexture2D_5owgt")
+shader_parameter/noise = SubResource("NoiseTexture2D_gnkci")
 shader_parameter/line_color = Color(0, 0, 0, 1)
 shader_parameter/line_count = 2.0
 shader_parameter/line_density = 0.452
@@ -21,22 +21,6 @@ shader_parameter/line_faloff = 0.352
 shader_parameter/mask_size = 0.0
 shader_parameter/mask_edge = 0.284
 shader_parameter/animation_speed = 7.0
-
-[sub_resource type="Animation" id="Animation_cknmu"]
-resource_name = "typing2"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextEdit:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.9, 1.0]
-}
 
 [sub_resource type="Animation" id="Animation_gnkci"]
 length = 0.001
@@ -56,6 +40,22 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_3yn62"]
 resource_name = "gameprompt"
 length = 15.0
+
+[sub_resource type="Animation" id="Animation_cknmu"]
+resource_name = "typing2"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextEdit:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.9, 1.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3yn62"]
 _data = {
@@ -86,12 +86,14 @@ offset_left = -16.0
 offset_top = -14.0
 offset_right = 1173.0
 offset_bottom = 667.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="Camera2D/CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/CanvasLayer/Control"]
 libraries = {
@@ -118,6 +120,7 @@ INITIALISING DIAGNOSIS OF ENVIRONMENT...
 APPROACHING BLACK HOLE..."
 visible_characters = 0
 visible_ratio = 0.0
+metadata/_edit_use_anchors_ = true
 
 [node name="ScreenBlur Effect" type="ColorRect" parent="Camera2D/CanvasLayer"]
 material = SubResource("ShaderMaterial_jw2oo")
@@ -125,5 +128,6 @@ offset_left = -28.0
 offset_top = -27.0
 offset_right = 1179.0
 offset_bottom = 688.0
+metadata/_edit_use_anchors_ = true
 
 [connection signal="animation_finished" from="Camera2D/CanvasLayer/Control/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
