@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://oidyser4gdyi"]
+
+[ext_resource type="Texture2D" uid="uid://buah722l1wbev" path="res://Assets/Placeholder/Kenny Particles/magic_02.png" id="2_7tnm0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w2fg5"]
+radius = 70.2567
+
+[node name="Lv1Object" type="RigidBody2D"]
+input_pickable = true
+gravity_scale = 0.0
+linear_velocity = Vector2(-300, 200)
+linear_damp_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_7tnm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w2fg5")

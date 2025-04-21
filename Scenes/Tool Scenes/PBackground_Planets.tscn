@@ -7,12 +7,18 @@
 
 [node name="SlowPlanet" type="ParallaxLayer" parent="."]
 texture_repeat = 2
+motion_mirroring = Vector2(1920, 0)
 
 [node name="Planet" type="Sprite2D" parent="SlowPlanet"]
+position = Vector2(-341.8, -248.8)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_yj3ib")
 
 [node name="SlowMoon" type="ParallaxLayer" parent="."]
+position = Vector2(351, 149)
+motion_mirroring = Vector2(1920, 0)
 
 [node name="Moon" type="Sprite2D" parent="SlowMoon"]
-scale = Vector2(0.2, 0.2)
+position = Vector2(-524.8, -292.8)
+scale = Vector2(0.108343, 0.108343)
 texture = ExtResource("2_fposd")

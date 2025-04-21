@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhpo4u2xdedll"]
+
+[ext_resource type="PackedScene" uid="uid://b0p14c74a834c" path="res://Scenes/Tool Scenes/PBackground_Planets.tscn" id="1_nbqol"]
+[ext_resource type="Texture2D" uid="uid://dld7q1i5f12w3" path="res://Assets/Placeholder/Kenny Particles/fire_01.png" id="2_rvg1y"]
+[ext_resource type="Texture2D" uid="uid://dn86hgmp4ia1t" path="res://Assets/Placeholder/Kenny Particles/star_06.png" id="3_lw85m"]
+
+[node name="Lv1Pbg" type="ParallaxBackground"]
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+
+[node name="PBackground" parent="ParallaxLayer3" instance=ExtResource("1_nbqol")]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+position = Vector2(855, 192)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(-321, -27)
+scale = Vector2(4.48298, 4.48298)
+texture = ExtResource("2_rvg1y")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(112, 162)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_lw85m")

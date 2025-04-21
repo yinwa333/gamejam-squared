@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://dj5b8d3bjbdpe"]
+
+[ext_resource type="Texture2D" uid="uid://c8w3mg82vvjww" path="res://Assets/Placeholder/Kenny Particles/light_03.png" id="1_2llne"]
+[ext_resource type="Script" uid="uid://b8abkqp85inbf" path="res://Scripts/level_1.gd" id="1_joc8x"]
+[ext_resource type="PackedScene" uid="uid://dv10xifxid341" path="res://Scenes/Tool Scenes/Mouse.tscn" id="2_q12u6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q12u6"]
+radius = 41.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_joc8x"]
+size = Vector2(152, 224)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jghel"]
+radius = 150.333
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jghel"]
+size = Vector2(1262, 60)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_joc8x")
+
+[node name="Object 1" type="RigidBody2D" parent="."]
+position = Vector2(571, 103)
+
+[node name="Sprite2D" type="Sprite2D" parent="Object 1"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_2llne")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object 1" groups=["ObjectA"]]
+shape = SubResource("CircleShape2D_q12u6")
+
+[node name="TypeA Area" type="Area2D" parent="."]
+position = Vector2(104, 502)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TypeA Area" groups=["CategoryA"]]
+shape = SubResource("RectangleShape2D_joc8x")
+
+[node name="TypeB Area" type="Area2D" parent="."]
+position = Vector2(1032, 502)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TypeB Area" groups=["CategoryB"]]
+shape = SubResource("RectangleShape2D_joc8x")
+
+[node name="Mouse" parent="." instance=ExtResource("2_q12u6")]
+position = Vector2(580, 711)
+scale = Vector2(0.2, 0.2)
+
+[node name="Mouse Area2D" type="Area2D" parent="Mouse" groups=["Mouse"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse/Mouse Area2D"]
+shape = SubResource("CircleShape2D_jghel")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(589, 633)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_jghel")

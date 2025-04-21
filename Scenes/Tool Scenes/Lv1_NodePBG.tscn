@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsv11pqxhbr6g"]
+
+[ext_resource type="Script" uid="uid://ew3ljj523pvv" path="res://Scripts/lv_1_node_pbg.gd" id="1_ebm5i"]
+[ext_resource type="Texture2D" uid="uid://bexspf4pnmsgq" path="res://Assets/Placeholder/Kenny Planets/planet04.png" id="3_ebm5i"]
+[ext_resource type="Texture2D" uid="uid://bbqgxngexamxc" path="res://Assets/Placeholder/Kenny Planets/planet08.png" id="3_inmap"]
+[ext_resource type="Texture2D" uid="uid://dslhwsy4cjlge" path="res://Assets/Placeholder/Kenny Planets/light6.png" id="3_iva01"]
+[ext_resource type="Texture2D" uid="uid://lq07kebg0er7" path="res://Assets/Placeholder/Kenny Particles/star_07.png" id="7_xfdbo"]
+
+[node name="Lv1NodePbg" type="Node2D"]
+script = ExtResource("1_ebm5i")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(-0.5, 0)
+repeat_times = 2
+
+[node name="Planet BG" type="Sprite2D" parent="Parallax2D"]
+self_modulate = Color(0.4053, 0.49064, 0.54713, 1)
+position = Vector2(-302, 162)
+scale = Vector2(0.17035, 0.17035)
+texture = ExtResource("3_ebm5i")
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(-4, 0)
+repeat_times = 2
+
+[node name="Planet" type="Sprite2D" parent="Parallax2D2"]
+position = Vector2(-1193, -248.8)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_inmap")
+
+[node name="Parallax2D3" type="Parallax2D" parent="."]
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(-3, 0)
+repeat_times = 2
+
+[node name="Moon" type="Sprite2D" parent="Parallax2D3"]
+self_modulate = Color(0.706122, 0.553528, 0.265026, 1)
+position = Vector2(-1026, -153)
+scale = Vector2(0.108343, 0.108343)
+texture = ExtResource("3_iva01")
+
+[node name="Star 1" type="Parallax2D" parent="."]
+repeat_size = Vector2(1920, 1080)
+autoscroll = Vector2(-200, 5)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Star 1"]
+position = Vector2(-171, -47)
+rotation = 0.383972
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_xfdbo")
+
+[node name="Star 2" type="Parallax2D" parent="."]
+repeat_size = Vector2(3840, 1080)
+autoscroll = Vector2(-600, -10)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Star 2"]
+position = Vector2(112, 38)
+rotation = 0.383972
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_xfdbo")
+
+[node name="Star 3" type="Parallax2D" parent="."]
+repeat_size = Vector2(1920, 1080)
+autoscroll = Vector2(-250, 7)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Star 3"]
+position = Vector2(559, 393)
+rotation = 0.383972
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("7_xfdbo")
+
+[node name="Star 4" type="Parallax2D" parent="."]
+repeat_size = Vector2(3840, 1080)
+autoscroll = Vector2(-550, -8)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Star 4"]
+position = Vector2(-326, -306)
+rotation = 0.383972
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("7_xfdbo")

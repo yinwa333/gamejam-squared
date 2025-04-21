@@ -1,0 +1,136 @@
+[gd_scene load_steps=13 format=3 uid="uid://dfen6ycr0ybqu"]
+
+[ext_resource type="Script" uid="uid://bou2y3fmbwg7" path="res://Scripts/level_1v_2.gd" id="1_d5uqr"]
+[ext_resource type="Texture2D" uid="uid://c00dtefq861x3" path="res://Assets/Placeholder/Kenny Icons/d3.png" id="1_j0q3q"]
+[ext_resource type="Texture2D" uid="uid://je12mjsjuynj" path="res://Assets/Placeholder/Kenny Icons/pawn.png" id="2_18tfw"]
+[ext_resource type="Texture2D" uid="uid://dld7q1i5f12w3" path="res://Assets/Placeholder/Kenny Particles/fire_01.png" id="2_v26kh"]
+[ext_resource type="PackedScene" uid="uid://dsv11pqxhbr6g" path="res://Scenes/Tool Scenes/Lv1_NodePBG.tscn" id="2_x1ud1"]
+[ext_resource type="Script" uid="uid://77gd35b0glxx" path="res://Scripts/lv_1_object.gd" id="5_1v14a"]
+[ext_resource type="Texture2D" uid="uid://dl8cglkqyfrno" path="res://Assets/Placeholder/Kenny Particles/magic_01.png" id="7_3irg8"]
+[ext_resource type="Texture2D" uid="uid://b1g2cms67r3o6" path="res://Assets/Placeholder/Kenny Particles/light_01.png" id="8_3irg8"]
+[ext_resource type="Texture2D" uid="uid://buah722l1wbev" path="res://Assets/Placeholder/Kenny Particles/magic_02.png" id="8_20enw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w2fg5"]
+radius = 51.0882
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mrchc"]
+radius = 39.0
+height = 78.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mrchc"]
+radius = 48.0416
+
+[node name="Level1v2" type="Node2D"]
+script = ExtResource("1_d5uqr")
+
+[node name="Static BG" type="Node2D" parent="."]
+
+[node name="BG" type="Sprite2D" parent="Static BG"]
+self_modulate = Color(0.0955307, 0.124749, 0.190672, 1)
+scale = Vector2(38.7289, 22.1481)
+texture = ExtResource("1_j0q3q")
+
+[node name="Texture" type="Sprite2D" parent="Static BG"]
+self_modulate = Color(0.819068, 0.682889, 0.264257, 1)
+position = Vector2(674, 3.05176e-05)
+scale = Vector2(4.48298, 4.48298)
+texture = ExtResource("2_v26kh")
+
+[node name="Lv1NodePbg" parent="." instance=ExtResource("2_x1ud1")]
+position = Vector2(869, -342)
+rotation = -0.383972
+
+[node name="Lv1Object" type="RigidBody2D" parent="."]
+position = Vector2(552, -391)
+collision_layer = 2
+collision_mask = 2
+input_pickable = true
+gravity_scale = 0.0
+linear_velocity = Vector2(-400, 300)
+linear_damp_mode = 1
+script = ExtResource("5_1v14a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lv1Object"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_20enw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lv1Object"]
+shape = SubResource("CircleShape2D_w2fg5")
+
+[node name="Lv1Object2" type="RigidBody2D" parent="."]
+position = Vector2(661, -241)
+input_pickable = true
+gravity_scale = 0.0
+linear_velocity = Vector2(-500, 250)
+linear_damp_mode = 1
+script = ExtResource("5_1v14a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lv1Object2"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_3irg8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lv1Object2"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_mrchc")
+
+[node name="Lv1Object3" type="RigidBody2D" parent="."]
+position = Vector2(239, -391)
+collision_layer = 4
+collision_mask = 4
+input_pickable = true
+gravity_scale = 0.0
+linear_velocity = Vector2(-300, 200)
+linear_damp_mode = 1
+script = ExtResource("5_1v14a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lv1Object3"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_3irg8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lv1Object3"]
+shape = SubResource("CircleShape2D_mrchc")
+
+[node name="Foreground UI" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Foreground UI"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-326, -401)
+rotation = 1.08935
+scale = Vector2(10.224, 10.224)
+texture = ExtResource("2_18tfw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Foreground UI"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(400, 387)
+rotation = -2.10135
+scale = Vector2(10.224, 10.224)
+texture = ExtResource("2_18tfw")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="star1" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(476, 199)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_20enw")
+
+[node name="star2" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(421, 223)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_3irg8")
+
+[node name="star3" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(485, 190)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_3irg8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="mouse_entered" from="Lv1Object" to="." method="_star1_mouse_entered"]
+[connection signal="mouse_exited" from="Lv1Object" to="." method="_star1_mouse_exited"]
+[connection signal="mouse_entered" from="Lv1Object2" to="." method="_star2_mouse_entered"]
+[connection signal="mouse_exited" from="Lv1Object2" to="." method="_star2_mouse_exited"]
+[connection signal="mouse_entered" from="Lv1Object3" to="." method="_star3_mouse_entered"]
+[connection signal="mouse_exited" from="Lv1Object3" to="." method="_star3_mouse_exited"]
